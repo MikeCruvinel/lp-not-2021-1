@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olá Mundo, em JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-color:cornflowerblue;
+        }
+
+        h1 {
+            color:yellow;
+
+        }
+
+        button {
+            font-size: 20px;
+            border-radius: 8px;
+            background-color: yellow;
+            color: red;
+        }   
+
+        p {
+            font-size: 15pt;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Olá, Mundo</h1>
+    <p>Programa de saudação em JavaScript</p>
+    <button id="saudar">Saudar</button>    
+    <script>
+        //função que será executada quando o botão "saudar" for clicado
+        function exibir() {
+            alert('Olá, usuario(a)!')
+        }
+        document.querySelector('#saudar').addEventListener('click', exibir)   
+    </script>
+</body>
+</html>

@@ -31,14 +31,12 @@
         if(isNaN(numero)) {
             alert('Desculpe, mas isso não é um ano valido!')
         }
-        else if(numero % 400 === 0) {
-            alert('É um ano bissexto! ')
-        }
-        else if(numero % 4 === 0 && numero % 100 != 0){
-            alert('É um ano bissexto! ')
+        else if(numero % 400 === 0 || (numero % 4 === 0 && !(numero % 100 === 0))) {
+            alert(`O ano ${numero} é bissexto.`)
+
         }
         else {
-            alert('Não é um ano bissexto! ')
+            alert(`O ano ${numero} NÃO é bissexto.`)
         }
 
     </script>

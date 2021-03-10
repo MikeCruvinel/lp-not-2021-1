@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina modelo</title>
+    <script>
+        //ativa verificaçoes adicionais a variaveis
+        //moto "chato" do javascript
+        'use strict'   
+        
+
+        //Loops estruturas de repetição são recursos que toda linguagem de programação utiliza
+        //Veremos o While
+
+        //pedir para o usuario informe varios numeros na sequencia e vamos somar
+        //ate que ele informe o valor 0. Depois disso, vamos apresentar a soma.
+
+        let soma = 0
+        let num
+
+        while(num != 0) {
+            //number é a mesma coisa que parseFloat
+            num = Number(prompt("Informe um numero para somar ou 0 para terminar o programa: "))
+            
+            if(! isNaN(num)) { // se for um numero valido
+                soma += num
+            }
+
+        }
+
+        //caracteristicas do looping While
+        // 1-) quantidade de execuções: infinita ate que escreva 0
+        // 2-) garantia de execução: 0 vezes (não tem garantia)
+        // 3-) local de teste: no inicio
+
+        alert(`A soma dos números informados é ${soma}.`)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

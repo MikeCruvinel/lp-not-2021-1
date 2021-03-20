@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcões</title>
+    <script>
+        //ativa verificaçoes adicionais a variaveis
+        //moto "chato" do javascript
+        'use strict'   
+        
+        /* 
+            Escreva uma função que receba dois números e retorne o maior entre eles
+            Retorne undefined caso os numeros sejam iguais entre si
+        */
+       function maiorNum(num1, num2) {
+        let maior
+        if(num1 > num2) {
+            maior = num1
+        }
+        else if(num2 > num1) {
+            maior = num2
+        }
+        else {
+            maior = undefined
+        }
+           return maior 
+       }
+       
+       // chamadas de função
+       let x = maiorNum(5, 7)
+       alert('O maior numero é: ' + x)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

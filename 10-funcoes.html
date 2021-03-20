@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina modelo</title>
+    <script>
+        //ativa verificaçoes adicionais a variaveis
+        //moto "chato" do javascript
+        'use strict'   
+        
+        //principio DRY =  don't repeat youself (não se repita)
+
+        //Função é um trexo de codigo que é escrito apenas uma vez
+        //pode ser invocado(Executado) varias vezes
+
+        //fatorial => nome da função 
+        //num => parametro/argumento da função
+        function fatorial (num) {   //declaração da função 
+            let fat = 1
+            for(let i = num; i > 1; i--) {
+                fat *= i
+            }
+            return fat  //retorno da função
+        }
+
+        //chamada de função, O valor retornado pela função será 
+        //atribuido a variável x
+        let x = fatorial(5)
+        alert('O retorno da fatorial de 5 é de ' + x)
+
+        //função para calcular a área de uma das seguintes formas geometrics
+        //quadrilateros, triangulos e elipses
+        function calcArea(base, altura, forma) {
+            let area 
+            switch(forma) {
+                case 'Q': //quadrilatero
+                    area = base * altura
+                    break
+                case 'T': //triangulo
+                    area = base * altura / 2
+                    break
+                case 'E': //Elipse
+                    area = (base / 2) * (altura / 2) * Math.PI
+                    break
+                    
+                    default: //formas invalidas
+                        area = NaN //area invalida
+
+            return area
+            }
+
+            let = areaTerreno = calcArea(8, 25, 'Q')    //chamada da função
+            alert('A area do terreno: ' + areaTerreno)
+
+            //chamada de função dentro do alert
+
+            alert('Área do triangulo: ' + calcArea(7, 5, 'T'))
+
+            alert('Área da elipse: ' + calcArea(2, 3, 'E'))
+
+            alert('Área de uma forma não suportada: ' + calcArea(2, 7, 'W'))
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

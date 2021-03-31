@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+
+</head>
+<body>
+    <h1>Document Object Model (DOM)</h1>
+    <p> <em>Document Object Model</em> (Modelos de Objeto do documento) é estrutura de 
+    página HTML tal que vista pelo javascript.</p>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <ol>
+        <li id="br">Brasil</li>
+        <li id="arg">Argentina</li>
+        <li id="ur">Uruguai</li>
+        <li id="pr">Paraguai</li>
+        <li id="bol">Bolivia</li>
+        <li id="chi">Chile</li>    
+    </ol>
+
+    <script>
+        //Quando vamos manipular o DOM (elementos da pagina de html)
+        //via JS, a seção script precisa ser realocada para logo antes
+        //da tag body
+        //ativa verificaçoes adicionais a variaveis
+        //moto "chato" do javascript
+        'use strict'  
+
+        //mudar o texto do elemento h1
+        
+        //capturar o elemento HTML
+        const elementoH1 = document.querySelector('h1')
+        elementoH1.textContent = 'Novo titulo da página'
+        elementoH1.style.color = 'Blue'
+
+        //Mudar algumas caracteristicas do paragrafo
+
+        const elementoP = document.querySelector('p')
+        elementoP.style.textAlign = 'center'
+        elementoP.style.fontWeight = 'bold'
+
+        //mudar capteristicas de um LI
+        const elementoLi = document.querySelector('li')
+        elementoLi.style.backgroundColor = 'yellow'
+        elementoLi.style.fontStyle = 'italic'
+
+        /*
+        Document.querySelector('nometag') irá capturar sempre o PRIMEIRO 
+        elemento do tipo 'nometag'
+        */
+
+        //Capturando todos os elementos <li>
+        
+        const todosLi = document.querySelectorAll('li')
+        todosLi[0].style.color = 'red'
+        todosLi[1].style.color = 'green'
+        todosLi[2].style.color = 'orange'
+        todosLi[6].style.textDecoration = 'underline'
+
+        //capturar um elemento pelo ID. Existem duas formas
+
+        //forma 1 mais antiga
+        const itemArgentina = document.getElementById("arg")
+        itemArgentina.style.color = 'blue'
+
+        //forma 2 mais recente
+        //IMPORTANTE, AO USAR O QUERYSELECTOR PARA CAPTURAR O ID, DEVE TER # NO INICIO
+        const itemBolivia = document.querySelector('#bol')
+        itemBolivia.style.color = 'seagreen'
+        
+    </script>
+
+</body>
+</html>

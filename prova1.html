@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina modelo</title>
+    <script>
+        //ativa verificaçoes adicionais a variaveis
+        //moto "chato" do javascript
+        'use strict'   
+        
+        let km = 0
+
+        function embarque() {
+            for(let i = 400; i >= 1; i--) {
+                if(i % 50 == 0 || i == 1) {
+                    document.write('No km:  ', i, '  jás uma estação de embarque/desembarque', '<br>')
+                }
+            }
+        }
+
+        do {
+             km = parseInt(prompt('Digite um Quilometro qualquer entra 1 e 400: '))
+        }while(km < 0 || km > 400)
+
+        switch(km) {
+            case 98: 
+            case 190:
+            case 283: 
+            case 379: 
+                alert('Nesse KM há um Posto de convêniencia da rede Mil Grau')
+                break
+            case 155:
+            case 355:
+                alert('Nesse KM há um Posto de Policia Ferroviária')
+                break
+            case 137:
+                alert('Nesse KM há um Aeroporto Interplanetário de Virapratos ')
+                break
+            case 204: 
+                alert('Nesse KM há um Hotel Cacique Internacional 6 estrelas')
+                break
+            case 311:
+                alert('Nesse KM há um Boleli Shopping Center')
+                break
+            case 356: 
+                alert('Nesse KM há um Acesso ao Acqua Park Unidade III')
+                break
+
+        }
+
+        embarque()
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

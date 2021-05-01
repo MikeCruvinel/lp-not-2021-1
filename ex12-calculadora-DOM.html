@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora DOM</title>
+
+</head>
+<body>
+
+    <h1>Calculadora DOM</h1>
+    <div>
+        <label for="num1">Primeiro número</label>
+        <input id="num1" type="number"> 
+    </div>
+
+    <div>
+        <label for="oper">Operação</label>
+        <select id="oper">
+            <option>(Selecione)</option>
+            <option>Soma (+)</option>
+            <option>Subtração (-)</option>
+            <option>Multiplicação (*)</option>
+            <option>Divisão (/)</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="num2">Segundo número</label>
+        <input id="num2" type="number">
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+    
+    <div id="result"></div>
+
+    <script>
+        
+        //ativa verificaçoes adicionais a variaveis
+        //moto "chato" do javascript
+        'use strict'   
+
+        // 1) Capturar os elementos HTML
+
+        // 2) Declarar a função de validade de formulário
+
+        // 3) Declarar a função que faz o calculo, de acordo com a
+        // operação escolhida pelo usúario. Dentro desta função, 
+        // deve ser chamada a função de validação
+
+        // 4) Associar a função que faz o calculo ao evento 'click' do button
+
+        const primeiroNum = document.getElementById('num1')
+        const segundoNum =document.getElementById('num2')
+        const operacao = document.getElementById('oper')
+        const elCalcular = document.getElementById('calcular')
+        const elResult = document.getElementById('result') 
+        let numero1
+        let numero2
+
+        function validar() {
+            // Retorna true caso todos os campos do formulário tiverem
+            // sido preenchidos corretamente, ou false, caso contrário
+            
+            numero1 = parseFloat(primeiroNum.value)
+            numero2 = parseFloat(segundoNum.value)
+
+            if(numero1 === '') {
+                alert('O primeiro numero deve ser preenchido.')
+                primeiroNum.focus()  // Coloca o cursor no campo
+                return false    // Não passou na validação
+            }
+            
+            if(numero2 === '') {
+                alert('O segundo numero deve ser preenchido.')
+                segundoNum.focus()  // Coloca o cursor no campo
+                return false    // Não passou na validação
+            }
+            if(operacao.selectedIndex === 0) {
+                alert('Selecione umaa operação valida.')
+                operacao.focus()
+                return false
+            }
+
+            return true
+        }
+
+        function calculo() {
+
+        let resultado = 0 
+            if(validar()) {
+                switch(operacao.selectedIndex) {
+                    case 1: //soma
+                        resultado = numero1 + numero2
+                        break
+                    case 2: //subtração
+                        resultado = numero1 - numero2
+                        break
+                    case 3: //multiplicação
+                        resultado = pnumero1 * numero2
+                        break
+                    default:
+                        resultado = numero1 / numero2
+                }
+            }
+            alert(resultado)
+        }
+        elCalcular.addEventListener('click', calculo)
+        
+    </script>
+</body>
+</html>

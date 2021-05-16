@@ -1,235 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de saudação</title>
-    <style>
-        /* Isto é CSS */
-        div, fieldset {
-            margin-bottom: 20px;    /* Margem inferior */
-        }
-        #saudacao {
-            background-color: limegreen;
-            padding: 10px;  /* Espaçamento interno entre o texto e a borda */
-        }
-        div label { /* Só os label que estiverem dentro de uma div */
-            display: block; /* Faz o label ocupar sua própria linha */
-        }
-    </style>
-
-<!--[if gte mso 9]><xml>
-<mso:CustomDocumentProperties>
-<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers msdt:dt="string">Estruturas de Dados-A-M-ANALISE E DESENV. DE SISTEMAS-109-20211 Members</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers>
-<mso:SharedWithUsers msdt:dt="string">95;#Estruturas de Dados-A-M-ANALISE E DESENV. DE SISTEMAS-109-20211 Members</mso:SharedWithUsers>
-</mso:CustomDocumentProperties>
-</xml><![endif]-->
+    <title>Página modelo</title>
 </head>
 <body>
+    <h1>Criação de elementos HTML via JavaScript</h1>
+    <p>Este arquivo demonstra como criar novos elementos HTML usando Javascript.</p>
 
-    <h1>Formulário de saudação</h1>
-
-    <div>
-        <label for="primeiro-nome">Primeiro nome</label>
-        <input id="primeiro-nome">
-    </div>
-
-    <div>
-        <label for="sobrenome">Sobrenome</label>
-        <input id="sobrenome">
-    </div>
-
-    <div>
-        <label for="forma-tratamento">Forma de tratamento</label>
-        <select id="forma-tratamento">
-            <option>(Selecione)</option>
-            <option>Vossa Majestade</option>
-            <option>Excelentíssimo/a</option>
-            <option>Ilustríssimo/a</option>
-            <option>Vossa Senhoria</option>
-            <option>Senhor/ora</option>
-            <option>Cremosíssimo/a</option>  
-        </select>
-    </div>
-
-    <fieldset>
-        <legend>Sexo</legend>
-        <input id="masculino" type="radio" name="sexo" checked>
-        <label for="masculino">Masculino</label>
-        <br>
-        <input id="feminino" type="radio" name="sexo">
-        <label for="feminino">Feminino</label>
-    </fieldset>
-
-    <div>
-        <label for="hora-dia">Hora do dia</label>
-        <input id="hora-dia" type="number" min="0" max="23">
-    </div>
-
-    <fieldset>
-        <legend>Opções de exibição</legend>
-        <input id="alert" type="checkbox">
-        <label for="alert">Exibir com alert()</label>
-        <br>
-        <!-- Isto é um comentário HTML -->
-        <input id="document" type="checkbox">
-        <label for="document">Exibir no documento</label>
-    </fieldset>
-
-    <div id="saudacao">
-        <!-- Aqui vai aparecer a saudação se a opção "Exibir no 
-            documento" estiver marcada -->
-    </div>
-
-    <div>
-        <button id="enviar">Enviar</button>
-    </div>
-    
-    <!--
-        Primeiro nome: Maria
-        Sobrenome: Catupirina
-        Forma de tratamento: Excelentíssimo/a
-        Sexo: Feminino
-        Hora do dia: 20
-        [X] Exibir com alert()
-        [X] Exibir no documento
-
-        Boa noite, Excelentíssima Maria Catupirina! Como posso ser útil?
-    -->
+    <ul>
+        <li>Maçã</li>
+        <li>Banana</li>
+        <li>Uva</li>
+    </ul>
 
     <script>
         // Ativa verificações adicionais de variáveis
         // Modo "chato" do JavaScript
         'use strict'
+        
+        /*
+            A INTRODUÇÃO DE UM NOVO ELEMENTO NO HTML VIA JS ENVOLVE DUAS ETAPAS:
+            1) A criação do elemento, que é responsabilidade do proprietário (owner),
+               ou seja, do document.
+            2) A incorporação do novo elemento na estrutura DOM é responsabilidade do
+               pai (parent) do novo elemento.
+        */
 
-        /* Captura dos elementos */
-        const elPrimeiroNome = document.getElementById('primeiro-nome')
-        const elSobrenome = document.getElementById('sobrenome')
-        const elFormaTratamento = document.getElementById('forma-tratamento')
-        const elMasculino = document.getElementById('masculino')
-        const elFeminino = document.getElementById('feminino')
+        // Criando um novo elemento (etapa 1)
+        const novoItem = document.createElement('li')
 
-        const elHoraDia = document.querySelector('#hora-dia') 
-        const elAlert = document.querySelector('#alert')
-        const elDocument = document.querySelector('#document')
-        const elSaudacao = document.querySelector('#saudacao')
-        const elEnviar = document.querySelector('#enviar')
+        // Colocando conteúdo no novo elemento
+        novoItem.textContent = 'Laranja'
 
-        /* Declaração de função sem argumentos */
-        function validar() {
-            // Retorna true caso todos os campos do formulário tiverem
-            // sido preenchidos corretamente, ou false, caso contrário
-            
-            if(elPrimeiroNome.value === '') {
-                alert('O primeiro nome deve ser preenchido.')
-                elPrimeiroNome.focus()  // Coloca o cursor no campo
-                return false    // Não passou na validação
-            }
+        // Capturando o pai do novo elemento
+        
+        // Seleciona o primeiro (e único) elemento do tipo ul no documento
+        const lista = document.querySelector('ul')
 
-            if(elSobrenome.value === '') {
-                alert('O sobrenome deve ser preenchido.')
-                elSobrenome.focus()
-                return false
-            }
+        // Incorporando o novo elemento como filho de seu pai (etapa 2)
+        lista.appendChild(novoItem)
 
-            if(elFormaTratamento.selectedIndex === 0) {
-                alert('Selecione uma opção de forma de tratamento.')
-                elFormaTratamento.focus()
-                return false
-            }
+        const novoItem2 = document.createElement('li')  // Etapa 1
+        novoItem2.textContent = 'Jabuticaba'
+        lista.appendChild(novoItem2) // Etapa 2
 
-            let horaDia = parseInt(elHoraDia.value)
-            if(isNaN(horaDia) || horaDia < 0 || horaDia > 23) {
-                alert('Informe uma hora válida entre 0 e 23.')
-                elHoraDia.focus()
-                return false
-            }
+        const novoItem3 = document.createElement('li')
+        novoItem3.textContent = 'Morango'
+        lista.appendChild(novoItem3)
 
-            if((! elAlert.checked) && (! elDocument.checked)) {
-                alert('Selecione pelo menos uma das opções de exibição.')
-                elAlert.focus()
-                return false
-            }
+        const novoParag = document.createElement('p') // Etapa 1
+        novoParag.textContent = 'Este parágrafo foi adicionado usando JavaScript.'
+        novoParag.style.color = 'blue'
+        // body não precisa ser capturado, pode ser acessado diretamente
+        // via document.body
+        document.body.appendChild(novoParag)    // Etapa 2
 
-            return true  // O formulário está válido
-        }
+        const novaDiv = document.createElement('div')
+        novaDiv.textContent = 'Sou uma div'
+        novaDiv.style.background = 'yellow'
+        novaDiv.style.textAlign = 'center'
+        document.body.appendChild(novaDiv)
 
-        function exibirMensagem() {
-            if(validar()) { // Se o formulário for válido (tiver retornado true)
-                // Boa noite, Excelentíssima Maria Catupirina! Como posso ser útil?
-                let mensagem
+        const novoItem4 = document.createElement('li')
+        novoItem4.textContent = 'Amora'
+        lista.appendChild(novoItem4)
 
-                let horaDia = parseInt(elHoraDia.value)
-                if(horaDia < 12) {
-                    mensagem = 'Bom dia, '
-                }
-                else if(horaDia < 18) {
-                    mensagem = 'Boa tarde, '
-                }
-                else {
-                    mensagem = 'Boa noite, '
-                }
+        // Conclusão: appendChild() sempre vai colocar o novo elemento
+        // como ÚLTIMO filho de seu pai
 
-                switch(elFormaTratamento.selectedIndex) {
-                    case 1: // Vossa Majestade
-                        mensagem += 'Vossa Majestade '
-                        break
+        const novoItem5 = document.createElement('li')
+        novoItem5.textContent = 'Abacaxi'
+        // insertBefore() tem dois parâmetros:
+        // 1º ~> o novo item a ser inserido
+        // 2º ~> o item já existente, que servirá de REFERÊNCIA
+        //       para o local onde o novo item será inserido
+        lista.insertBefore(novoItem5, novoItem)
 
-                    case 2: // Excelentíssimo/a
-                        if(elFeminino.checked) {
-                            mensagem += 'Excelentíssima '
-                        }
-                        else {
-                            mensagem += 'Excelentíssimo '
-                        }
-                        break
-                        
-                    case 3: // Ilustríssimo/a
-                        if(elFeminino.checked) {
-                            mensagem += 'Ilustríssima '
-                        }
-                        else {
-                            mensagem += 'Ilustríssimo '
-                        }
-                        break
+        const novoItem6 = document.createElement('li')
+        novoItem6.textContent = 'Abacate'
+        lista.insertBefore(novoItem6, novoItem3)
 
-                    case 4: // Vossa Senhoria
-                        mensagem += 'Vossa Senhoria '
-                        break
+        const novoParag2 = document.createElement('p')
+        novoParag2.textContent = 'Este parágrafo foi inserido aqui com insertBefore().'
+        document.body.insertBefore(novoParag2, lista)
 
-                    case 5: // Senhor/a
-                        if(elFeminino.checked) {
-                            mensagem += 'Senhora '
-                        }
-                        else {
-                            mensagem += 'Senhor '
-                        }
-                        break
+        // Inserindo um novo elemento no início da lista
+        const novoItem7 = document.createElement('li')
+        novoItem7.textContent = 'Caju'
+        // Usando querySelector() para pegar o primeiro elemento
+        // do tipo li
+        const itemMaca = document.querySelector('li')
+        lista.insertBefore(novoItem7, itemMaca)
 
-                    default: // Cremosíssimo/a (case 6)
-                        if(elFeminino.checked) {
-                            mensagem += 'Cremosíssima '
-                        }
-                        else {
-                            mensagem += 'Cremosíssimo'
-                        }
-                }
+        const novoItem8 = document.createElement('li')
+        novoItem8.textContent = 'Ameixa'
+        // Captura TODOS os elementos do tipo especificado
+        // e retorna um VETOR contendo todos eles
+        const todosItens = document.querySelectorAll('li')
+        lista.insertBefore(novoItem8, todosItens[3])
 
-                mensagem += elPrimeiroNome.value + ' '
-                mensagem += elSobrenome.value + '! Como posso ser útil?'
-
-                if(elAlert.checked) {
-                    alert(mensagem)
-                }
-
-                if(elDocument.checked) {
-                    elSaudacao.textContent = mensagem
-                }
- 
-            }
-        }
-
-        elEnviar.addEventListener('click', exibirMensagem)
+        // CONCLUSÕES:
+        // 1) insertBefore() permite posicionar o novo elemento
+        // entre os filhos já existentes de seu pai, usando um
+        // outro elemento existente como ponto de referência.
+        // 2) querySelectorAll() captura todos os elementos do
+        // tipo especificado dentro de um vetor.
 
     </script>
 </body>

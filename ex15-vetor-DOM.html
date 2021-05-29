@@ -46,7 +46,15 @@
                Espírito Santo
         */
         
-        vet.unshift('São Paulo', 'Santa Catarina', 'Rio Grande do Sul', 'Rio de Janeiro', 'Paraná', 'Minas Gerais', 'Espírito Santo')
+        vet.unshift('São Paulo')
+        vet.unshift('Santa Catarina')
+        vet.unshift('Rio grande do Sul')
+        vet.unshift('Rio de Janeiro')
+        vet.unshift('Paraná')
+        vet.unshift('Minas Gerais')
+        vet.unshift('Espirito Santo')
+
+
 
         /*
             3) Percorra o vetor com um loop for..of, crie um item de lista para cada
@@ -57,9 +65,9 @@
         let lista = document.querySelector('ul')
 
         for(let elementos of vet) {
-            vet = document.createElement('li')
-            vet.textContent = elementos
-            lista.appendChild(vet)
+            let aux = document.createElement('li')
+            aux.textContent = elementos
+            lista.appendChild(aux)
         }
           
     </script>

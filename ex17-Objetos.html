@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina modelo</title>
+    <script>
+        //ativa verificaçoes adicionais a variaveis
+        //moto "chato" do javascript
+        'use strict'  
+
+        /*
+            1) Declare um objeto pet1 que represente um cão e preencha as
+            seguintes propriedades:
+            - nome
+            - raça
+            - cor
+            - sexo
+            - nome do pai (nome da propriedade com espaços)
+            - nome da mãe (nome da propriedade com espaços)
+        */
+        
+
+        const pet1 = {
+            
+            nome: 'Diego',
+            'raça': 'Persa',
+            cor: 'Amarelo',
+            sexo: 'Macho',
+            'Nome do pai': 'Desconhecido',
+            'Nome da mãe': 'Julie'
+
+        }
+
+
+        /*
+            2) Crie um objeto pet1, copiando do primeiro:
+
+                let pet2 = pet1
+                e troque alguma dessas caracteristicas de pet2
+
+        */
+        
+        //let pet2 = pet1  //Duplicar dessa forma não funciona
+
+        //Duplicar cada uma das propriedades em um novo objeto
+        //para isso, podemos usar a chamada "sintaxe de espalhamento"
+
+        let pet2 = {...pet1}
+
+        pet2.nome = 'Frodo'
+        pet2.cor = 'Branco'
+        pet2['Nome do pai'] = 'Bilbo'
+        pet2['Nome da mãe'] = 'Desconhecido'
+
+        /* 
+            3-) Use dois for...in para listar os objetos: pet1 e pet2
+        */
+
+        for(let aux in pet1) {
+            document.write(`${aux} ==> ${pet1[aux]} <br>`)
+        }
+
+        document.write('-------------------------------------------<br>')
+
+        for(let aux2 in pet2) {
+            document.write(`${aux2} ==> ${pet2[aux2]} <br>`)
+        }
+        
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
